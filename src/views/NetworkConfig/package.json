@@ -1,0 +1,6 @@
+{
+  "name": "NetworkConfig",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./network.config.js"
+}
