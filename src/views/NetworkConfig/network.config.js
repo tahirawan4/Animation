@@ -11,6 +11,24 @@ class NetworkConfig extends Component {
     super(props, context);
       this.state = {
         show: false,
+        NFS1_1: true,
+        NFS1_2: false,
+        NFS1_3: false,
+        NFS2_1: true,
+        NFS2_2: false,
+        NFS2_3: false,
+        NFS5_1: true,
+        NFS5_2: false,
+        NFS3_1: false,
+        NFS3_2: true,
+        NFS3_3: false,
+        NFS4_1: false,
+        NFS4_2: true,
+        NFS4_3: false,
+        NFS6_1: true,
+        NFS6_2: false,
+        NFS6_3: false,
+        NFS6_4: true,
         atten: 'ATTEN 12 dB',
         rectangles: [
           { name: 'Switch1', x: 300, y: 100, width: 50, height: 30, fill: 'white', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
@@ -45,7 +63,7 @@ class NetworkConfig extends Component {
           { name: 'LiveWire4', points: [770, 115, 890, 115], stroke: 'green', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire5', points: [920, 110, 990, 110], stroke: 'green', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire6', points: [860, 420, 1010, 420], stroke: 'green', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'LiveWire7', points: [740, 415, 780, 415, 780, 410, 830, 410], stroke: 'green', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          { name: 'LiveWire7', points: [740, 410, 830, 410], stroke: 'green', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire8_1_1', points: [440, 405, 470, 405, 470, 395, 530, 395], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire8_1_2', points: [560, 395, 660, 395, 660, 405, 710, 405], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire8_2_1', points: [440, 415, 480, 415, 480, 455, 530, 455], stroke: 'green', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
@@ -63,24 +81,24 @@ class NetworkConfig extends Component {
           { name: 'RedDottedWire', points: [1010, 110, 1060, 110, 1060, 60], stroke: 'red', strokeWidth: 1.5, lineJoin: 'round', dash: [5, 5], shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'RedDottedWire', points: [1010, 110, 1060, 110, 1060, 60], stroke: 'red', strokeWidth: 1.5, lineJoin: 'round', dash: [5, 5], shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
 
-          { name: 'NFS1_1', points: [310, 115, 340, 107], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS1_2', points: [310, 115, 340, 115], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS1_3', points: [310, 115, 340, 124], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS2_1', points: [610, 107, 640, 115], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS2_2', points: [610, 115, 640, 115], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS2_3', points: [610, 124, 640, 115], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS5_1', points: [890, 115, 920, 110], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS5_2', points: [890, 115, 920, 120], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS3_1', points: [410, 415, 440, 405], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS3_2', points: [410, 415, 440, 415], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS3_3', points: [410, 415, 440, 425], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS4_1', points: [710, 405, 740, 415], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS4_2', points: [710, 415, 740, 415], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS4_3', points: [710, 425, 740, 415], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS6_1', points: [830, 410, 860, 420], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS6_2', points: [830, 420, 860, 420], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS6_3', points: [830, 460, 860, 460], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'NFS6_4', points: [830, 470, 860, 460], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS1_1', points: [310, 115, 340, 107], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS1_2', points: [310, 115, 340, 115], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS1_3', points: [310, 115, 340, 124], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS2_1', points: [610, 107, 640, 115], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS2_2', points: [610, 115, 640, 115], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS2_3', points: [610, 124, 640, 115], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS5_1', points: [890, 115, 920, 110], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS5_2', points: [890, 115, 920, 120], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS3_1', points: [410, 415, 440, 405], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS3_2', points: [410, 415, 440, 415], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS3_3', points: [410, 415, 440, 425], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS4_1', points: [710, 405, 740, 415], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS4_2', points: [710, 415, 740, 415], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS4_3', points: [710, 425, 740, 415], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS6_1', points: [830, 410, 860, 420], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS6_2', points: [830, 420, 860, 420], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS6_3', points: [830, 460, 860, 460], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          // { name: 'NFS6_4', points: [830, 470, 860, 460], stroke: 'black', strokeWidth: 1, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
 
           { name: 'WaveBoxLine1', points: [730, 110, 740, 105, 750, 110, 760, 105], stroke: 'blue', strokeWidth: 1, lineJoin: 'round', lineCap: 'round', tension: 0.5 },
           { name: 'WaveBoxLine2', points: [730, 118, 740, 113, 750, 118, 760, 113], stroke: 'blue', strokeWidth: 1, lineJoin: 'round', lineCap: 'round', tension: 0.5 },
@@ -214,14 +232,25 @@ class NetworkConfig extends Component {
                 <SplitterForks/>
                 <GroundFork/>
                 <GND/>
-                <Text
-                  x={290}
-                  y={375}
-                  text={this.state.atten}
-                  fontSize={12}
-                  fontFamily={'Calibri'}
-                  fill={'black'}
-                />
+                { this.state.NFS1_1 ? <Line name={'NFS1_1'} points={[310, 115, 340, 107]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS1_2 ? <Line name={'NFS1_2'} points={[310, 115, 340, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS1_3 ? <Line name={'NFS1_3'} points={[310, 115, 340, 124]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS2_1 ? <Line name={'NFS2_1'} points={[610, 107, 640, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS2_2 ? <Line name={'NFS2_2'} points={[610, 115, 640, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS2_3 ? <Line name={'NFS2_3'} points={[610, 124, 640, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS5_1 ? <Line name={'NFS5_1'} points={[890, 115, 920, 110]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS5_2 ? <Line name={'NFS5_2'} points={[890, 115, 920, 120]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS3_1 ? <Line name={'NFS3_1'} points={[410, 415, 440, 405]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS3_2 ? <Line name={'NFS3_2'} points={[410, 415, 440, 415]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS3_3 ? <Line name={'NFS3_3'} points={[410, 415, 440, 425]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS4_1 ? <Line name={'NFS4_1'} points={[710, 405, 740, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS4_2 ? <Line name={'NFS4_2'} points={[710, 415, 740, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS4_3 ? <Line name={'NFS4_3'} points={[710, 425, 740, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS6_1 ? <Line name={'NFS6_1'} points={[830, 410, 860, 420]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS6_2 ? <Line name={'NFS6_2'} points={[830, 420, 860, 420]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS6_3 ? <Line name={'NFS6_3'} points={[830, 460, 860, 460]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                { this.state.NFS6_4 ? <Line name={'NFS6_4'} points={[830, 470, 860, 460]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }
+                <Text name={'atten'} x={290} y={375} text={this.state.atten} fontSize={12} fontFamily={'Calibri'} fill={'black'} />
               </Layer>
             </Stage>
           </Col>
