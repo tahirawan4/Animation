@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layer, Arrow, Shape } from "react-konva";
+import { Arrow, Shape } from "react-konva";
 
 class ATTENArrow extends Component {
   render() {
@@ -13,9 +13,6 @@ class ATTENArrow extends Component {
         fill={'black'}
         stroke={'black'}
         strokeWidth={2}
-        shadowColor={'gray'}
-        shadowBlur={5}
-        shadowOpacity={0.5}
       />
     );
   }
@@ -61,40 +58,70 @@ class ATTENBoxShape extends Component {
       <Shape
         sceneFunc={(context, shape) => {
           context.beginPath();
+          // left side
           context.moveTo(308, 430);
-          context.lineTo(308, 425);
-          context.moveTo(304, 420);
-          context.lineTo(308, 425);
+          context.lineTo(308, 427);
+          context.moveTo(304, 424);
+          context.lineTo(308, 427);
+          context.moveTo(312, 421);
+          context.lineTo(304, 424);
+          context.moveTo(304, 418);
+          context.lineTo(312, 421);
           context.moveTo(312, 415);
-          context.lineTo(304, 420);
-          context.moveTo(304, 410);
+          context.lineTo(304, 418);
+          context.moveTo(304, 412);
           context.lineTo(312, 415);
-          context.moveTo(312, 405);
-          context.lineTo(304, 410);
-          context.moveTo(304, 400);
-          context.lineTo(312, 405);
-          context.moveTo(312, 405);
-          context.lineTo(318, 400);
-          context.moveTo(318, 400);
-          context.lineTo(324, 405);
-          context.moveTo(324, 405);
-          context.lineTo(330, 400);
-          context.moveTo(330, 400);
-          context.lineTo(336, 405);
-          context.moveTo(336, 405);
-          context.lineTo(342, 400);
+          context.moveTo(312, 409);
+          context.lineTo(304, 412);
+          context.moveTo(304, 406);
+          context.lineTo(312, 409);
+          // left corner
+          context.moveTo(309, 404);
+          context.lineTo(304, 406);
+          context.moveTo(308, 400);
+          context.lineTo(308, 404);
+          context.moveTo(312, 400);
+          context.lineTo(308, 400);
+          // top
+          context.moveTo(315, 403);
+          context.lineTo(312, 400);
+          context.moveTo(318, 398);
+          context.lineTo(315, 403);
+          context.moveTo(321, 403);
+          context.lineTo(318, 398);
+          context.moveTo(324, 398);
+          context.lineTo(321, 403);
+          context.moveTo(327, 403);
+          context.lineTo(324, 398);
+          context.moveTo(330, 398);
+          context.lineTo(327, 403);
+          context.moveTo(333, 403);
+          context.lineTo(330, 398);
+          context.moveTo(336, 398);
+          context.lineTo(333, 403);
+          context.moveTo(339, 401);
+          context.lineTo(336, 398);
+          context.moveTo(339, 401);
+          context.lineTo(342, 401);
+          // right side
           context.moveTo(342, 430);
-          context.lineTo(342, 425);
-          context.moveTo(338, 420);
-          context.lineTo(342, 425);
+          context.lineTo(342, 427);
+          context.moveTo(338, 424);
+          context.lineTo(342, 427);
+          context.moveTo(346, 421);
+          context.lineTo(338, 424);
+          context.moveTo(338, 418);
+          context.lineTo(346, 421);
           context.moveTo(346, 415);
-          context.lineTo(338, 420);
-          context.moveTo(338, 410);
+          context.lineTo(338, 418);
+          context.moveTo(338, 412);
           context.lineTo(346, 415);
-          context.moveTo(346, 405);
-          context.lineTo(338, 410);
-          context.moveTo(342, 400);
-          context.lineTo(346, 405);
+          context.moveTo(346, 409);
+          context.lineTo(338, 412);
+          context.moveTo(342, 406);
+          context.lineTo(346, 409);
+          context.moveTo(342, 406);
+          context.lineTo(342, 401);
           context.fillStrokeShape(shape);
         }}
         fill={'black'}
