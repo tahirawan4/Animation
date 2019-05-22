@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Stage, Layer, Rect, RegularPolygon as Triangle, Line, Text } from "react-konva";
 import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { Button, Modal } from 'react-bootstrap';
+import './network.config.css';
 
 import { GND, ATTENArrow, ATTENBoxShape, BaseFork, TopFork, FrontPanelFork, GroundFork, LowerTestFork, SplitterForks, UpperTestFork } from "./network.custom";
 
@@ -146,6 +147,49 @@ class NetworkConfig extends Component {
       this.setState({ atten: 'ATTEN ' + e.target.value + ' dB' });
     }
   };
+  componentDidMount() {
+    this.interval = setInterval(() => {
+        let nfs1 = Math.random() >= 0.5;
+        let nfs2 = Math.random() >= 0.5;
+        let nfs3 = Math.random() >= 0.5;
+        let nfs4 = Math.random() >= 0.5;
+        let nfs5 = Math.random() >= 0.5;
+        let nfs61 = Math.random() >= 0.5;
+        let nfs62 = Math.random() >= 0.5;
+        this.setState({ NFS1_1: nfs1 });
+        this.setState({ NFS1_2: !nfs1 });
+        this.setState({ NFS1_3: false });
+        this.setState({ NFS2_1: nfs2 });
+        this.setState({ NFS2_2: !nfs2 });
+        this.setState({ NFS2_3: false });
+        this.setState({ NFS3_1: nfs3 });
+        this.setState({ NFS3_2: !nfs3 });
+        this.setState({ NFS3_3: false });
+        this.setState({ NFS4_1: nfs4 });
+        this.setState({ NFS4_2: !nfs4 });
+        this.setState({ NFS4_3: false });
+        this.setState({ NFS5_1: nfs5 });
+        this.setState({ NFS5_2: !nfs5 });
+        this.setState({ NFS6_1: nfs61 });
+        this.setState({ NFS6_2: !nfs61 });
+        this.setState({ NFS6_3: nfs62 });
+        this.setState({ NFS6_4: !nfs62 });
+    }, 1000);
+    this.interval = setInterval(() => {
+        this.setState({ NFS1_1: false });
+        this.setState({ NFS1_2: false });
+        this.setState({ NFS1_3: true });
+        this.setState({ NFS2_1: false });
+        this.setState({ NFS2_2: false });
+        this.setState({ NFS2_3: true });
+        this.setState({ NFS3_1: false });
+        this.setState({ NFS3_2: false });
+        this.setState({ NFS3_3: true });
+        this.setState({ NFS4_1: false });
+        this.setState({ NFS4_2: false });
+        this.setState({ NFS4_3: true });
+    }, 2000);
+  }
   render() {
     const rectList = this.state.rectangles.map((rect, index) => {
       return (
@@ -202,6 +246,7 @@ class NetworkConfig extends Component {
     const textList = this.state.texts.map((text) => {
       return (
         <Text
+          className="fontFamily"
           key={text.name}
           x={text.x}
           y={text.y}
