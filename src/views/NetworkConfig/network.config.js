@@ -9,6 +9,8 @@ import './network.config.css';
 import { GND, ATTENArrow, ATTENBoxShape, BaseFork, TopFork, FrontPanelFork, GroundFork, LowerTestFork, SplitterForks, UpperTestFork } from "./network.custom";
 import { AppSwitch } from "@coreui/react";
 
+// Don not DELETE any comments...!!!
+
 const GREEN = '#00b32d';
 const options = [
   { value: 1, label: '1' },
@@ -68,10 +70,6 @@ class NetworkConfig extends Component {
         NFS6_3: false,
         NFS6_4: true,
         atten: 'ATTEN 12 dB',
-        topLnaOne: 'green',
-        topLnaTwo: 'red',
-        baseLnaOne: 'green',
-        baseLnaTwo: 'green',
         topPath: false,
         basePath: false,
         topToBasePath: false,
@@ -681,15 +679,11 @@ class NetworkConfig extends Component {
           <Col xs="4" sm="6" md="2" lg="1">
             <FormGroup>
                 <Label htmlFor="attenuater">Set Attenuater</Label>
-                {/*<Input type="select" name="Attenuater" id="attenuater">*/}
-                  {/*{ optionList() }*/}
-                {/*</Input>*/}
             </FormGroup>
           </Col>
             <Col xs="4" sm="6" md="2" lg="2">
                 <FormGroup>
                   <Select value={selectedOption} onChange={this.handleChange} options={options} />
-                    {/*<Label htmlFor="attenuater">Set Attenuater</Label>*/}
                     {/*<Input type="select" name="Attenuater" id="attenuater" defaultValue={12} onChange={this.handleSave}>*/}
                         {/*{ optionList() }*/}
                     {/*</Input>*/}
