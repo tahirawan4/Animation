@@ -9,7 +9,7 @@ import './network.config.css';
 import { GND, ATTENArrow, ATTENBoxShape, BaseFork, TopFork, FrontPanelFork, GroundFork, LowerTestFork, SplitterForks, UpperTestFork } from "./network.custom";
 import { AppSwitch } from "@coreui/react";
 
-// Don not DELETE any comments...!!!
+// Do not DELETE any comments...!!!
 
 const GREEN = '#00b32d';
 const options = [
