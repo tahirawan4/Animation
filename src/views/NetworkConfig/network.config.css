@@ -2,3 +2,7 @@
     font-family: 'Calibri';
     src: url('../../assets/fonts/Calibri.ttf') format('truetype');
 }
+
+.normal span {
+    font-size: 17px;
+}
