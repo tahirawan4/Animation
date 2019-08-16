@@ -1,8 +1,37 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
+  state = {
+    username: '',
+    password: ''
+  };
+  handleChange = (e) => {
+    console.log(e.target.id, e.target.value);
+    this.setState({
+      [e.target.id]: e.target.value
+    });
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    axios.post('https://site.edtechworx.com/accounts/login/', { 'email': this.state.username, 'password': this.state.password })
+      .then(res => {
+        if (res.data) {
+          console.log(res.data);
+          localStorage.setItem('token', res.data.token);
+          this.props.history.push('/dashboard');
+          return Promise.resolve(res);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div className="app flex-row align-items-center">
@@ -12,7 +41,7 @@ class Login extends Component {
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form>
+                    <Form onSubmit={ this.handleSubmit }>
                       <h1>Login</h1>
                       <p className="text-muted">Sign In to your account</p>
                       <InputGroup className="mb-3">
@@ -21,7 +50,8 @@ class Login extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
+                        {/*<Input id="username" type="text" placeholder="Username" autoComplete="username" onChange={ this.handleChange }/>*/}
+                        <Input id="username" type="text" placeholder="Username" onChange={ this.handleChange }/>
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -29,7 +59,8 @@ class Login extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
+                        {/*<Input id="password" type="password" placeholder="Password" autoComplete="current-password" onChange={ this.handleChange } />*/}
+                        <Input id="password" type="password" placeholder="Password" onChange={ this.handleChange } />
                       </InputGroup>
                       <Row>
                         <Col xs="6">

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import { Stage, Layer, Rect, RegularPolygon as Triangle, Line, Text } from "react-konva";
 import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { Button, Modal } from 'react-bootstrap';
@@ -305,6 +306,7 @@ class NetworkConfig extends Component {
         // this.setState({ lines: update(this.state.lines, {14: {stroke: {$set: 'black' }}}) });
         // this.setState({ lines: update(this.state.lines, {15: {stroke: {$set: GREEN   }}}) });
     }, 2000);
+    this.getNetworkConfig();
   }
 
   setTopPath(pathName) {
@@ -551,6 +553,15 @@ class NetworkConfig extends Component {
     this.setState({ rectangles: update(this.state.rectangles, {12: {fill: {$set: baseLnaOne }}}) });
     this.setState({ rectangles: update(this.state.rectangles, {13: {fill: {$set: baseLnaTwo }}}) });
   }
+  getNetworkConfig() {
+    axios.get('')
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   render() {
     let optionsToReturn = [];
