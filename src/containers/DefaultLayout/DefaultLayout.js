@@ -28,7 +28,8 @@ class DefaultLayout extends Component {
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   signOut(e) {
-    e.preventDefault()
+    e.preventDefault();
+    localStorage.clear();
     this.props.history.push('/login')
   }
 
@@ -62,9 +63,15 @@ class DefaultLayout extends Component {
                         path={route.path}
                         exact={route.exact}
                         name={route.name}
-                        render={props => (
-                          <route.component {...props} />
-                        )} />
+                        render={props =>
+                          localStorage.getItem('token') !== null
+                          ? (
+                            <route.component {...props} />
+                          ) : (
+                            <Redirect to={{ pathname: "/login" }} />
+                          )
+                        }
+                      />
                     ) : (null);
                   })}
                   <Redirect from="/" to="/dashboard" />
@@ -89,3 +96,19 @@ class DefaultLayout extends Component {
 }
 
 export default DefaultLayout;
+
+{/*<Switch>*/}
+{/*  {routes.map((route, idx) => {*/}
+{/*    return route.component ? (*/}
+{/*      <Route*/}
+{/*        key={idx}*/}
+{/*        path={route.path}*/}
+{/*        exact={route.exact}*/}
+{/*        name={route.name}*/}
+{/*        render={props => (*/}
+{/*          <route.component {...props} />*/}
+{/*        )} />*/}
+{/*    ) : (null);*/}
+{/*  })}*/}
+{/*  <Redirect from="/" to="/dashboard" />*/}
+{/*</Switch>*/}

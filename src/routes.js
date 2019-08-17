@@ -1,5 +1,6 @@
 import React from 'react';
 
+const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout/DefaultLayout'));
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 const Cards = React.lazy(() => import('./views/Base/Cards'));
 const Carousels = React.lazy(() => import('./views/Base/Carousels'));
@@ -39,6 +40,7 @@ const NetworkConfig = React.lazy(() => import('./views/NetworkConfig/network.con
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
+  // { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
