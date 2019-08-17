@@ -46,6 +46,11 @@ export default {
       },
     },
     {
+      name: 'Accounts',
+      url: '/accounts',
+      icon: 'icon-user',
+    },
+    {
       name: 'Base',
       url: '/base',
       icon: 'icon-puzzle',
