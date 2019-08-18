@@ -641,7 +641,7 @@ class NetworkConfig extends Component {
       return optionsToReturn;
     };
     return (
-      <div className="container">
+      <div className="container animated fadeIn">
         <Row>
           <Col lg="12">
             <Stage width={window.innerWidth} height={window.innerHeight}>

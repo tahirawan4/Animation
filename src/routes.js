@@ -1,6 +1,8 @@
 import React from 'react';
 
 const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout/DefaultLayout'));
+const Accounts = React.lazy(() => import('./views/accounts/accounts'));
+const NewUser = React.lazy(() => import('./views/accounts/newUser'));
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 const Cards = React.lazy(() => import('./views/Base/Cards'));
 const Carousels = React.lazy(() => import('./views/Base/Carousels'));
@@ -36,12 +38,16 @@ const Typography = React.lazy(() => import('./views/Theme/Typography'));
 const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
+const Status = React.lazy(() => import('./views/NetworkConfig/status'));
 const NetworkConfig = React.lazy(() => import('./views/NetworkConfig/network.config'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   // { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/', exact: true, name: 'Home' },
+  { path: '/accounts', name: 'Accounts', component: Accounts },
+  { path: '/new-user', name: 'New User', component: NewUser },
+  { path: '/status', name: 'Status', component: Status },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },

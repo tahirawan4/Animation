@@ -10,6 +10,25 @@ export default {
       },
     },
     {
+      name: 'Network Config',
+      url: '/network-config',
+      icon: 'icon-pencil',
+      badge: {
+        variant: 'info',
+        text: 'NEW',
+      },
+    },
+    {
+      name: 'Status',
+      url: '/status',
+      icon: 'icon-hourglass',
+    },
+    {
+      name: 'Accounts',
+      url: '/accounts',
+      icon: 'icon-user',
+    },
+    {
       title: true,
       name: 'Theme',
       wrapper: {            // optional wrapper object
@@ -35,20 +54,6 @@ export default {
         element: '',
         attributes: {},
       },
-    },
-    {
-      name: 'Network Config',
-      url: '/network-config',
-      icon: 'icon-pencil',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
-    },
-    {
-      name: 'Accounts',
-      url: '/accounts',
-      icon: 'icon-user',
     },
     {
       name: 'Base',
