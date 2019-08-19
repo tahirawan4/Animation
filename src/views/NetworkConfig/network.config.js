@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { Stage, Layer, Rect, RegularPolygon as Triangle, Line, Text } from "react-konva";
-import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Col, Form, FormGroup, Input, Label, Row, Card, CardBody } from 'reactstrap';
 import { Button, Modal } from 'react-bootstrap';
+import { AppSwitch } from "@coreui/react";
 import update from 'immutability-helper';
 import Select from 'react-select';
 import './network.config.css';
 
 import { GND, ATTENArrow, ATTENBoxShape, BaseFork, TopFork, FrontPanelFork, GroundFork, LowerTestFork, SplitterForks, UpperTestFork } from "./network.custom";
-import { AppSwitch } from "@coreui/react";
 
 // Do not DELETE any comments...!!!
 
@@ -88,24 +88,24 @@ class NetworkConfig extends Component {
           { name: 'ATTEN', x: 210, y: 395, width: 50, height: 40, fill: 'white', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
           // { name: 'ATTEN', x: 210, y: 395, width: 50, height: 40, fill: 'white', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5, onClick: this.handleClick },
           { name: 'UpperLNA1', x: 310, y: 60, width: 80, height: 50, fill: 'green', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
-          { name: 'UpperLNA2', x: 360, y: 120, width: 80, height: 50, fill: 'green', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
+          { name: 'UpperLNA2', x: 350, y: 120, width: 80, height: 50, fill: 'green', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
           { name: 'LowerLNA1', x: 430, y: 370, width: 80, height: 50, fill: 'red', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
-          { name: 'LowerLNA2', x: 430, y: 430, width: 80, height: 50, fill: 'green', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
+          { name: 'LowerLNA2', x: 470, y: 430, width: 80, height: 50, fill: 'green', stroke: 'black', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
           { name: 'WaveBox', x: 620, y: 100, width: 60, height: 40, fill: 'white', stroke: 'blue', strokeWidth: 1, shadowColor: 'gray', shadowBlur: 5, shadowOpacity: 0.5 },
         ],
         triangles: [
           { name: 'UpperLNA1Tri', x: 350, y: 85, sides: 3, radius: 25, fill: 'white', stroke: 'black', strokeWidth: 0.5, rotation: 270 },
-          { name: 'UpperLNA2Tri', x: 400, y: 145, sides: 3, radius: 25, fill: 'white', stroke: 'black', strokeWidth: 0.5, rotation: 270 },
+          { name: 'UpperLNA2Tri', x: 390, y: 145, sides: 3, radius: 25, fill: 'white', stroke: 'black', strokeWidth: 0.5, rotation: 270 },
           { name: 'LowerLNA1Tri', x: 470, y: 395, sides: 3, radius: 25, fill: 'white', stroke: 'black', strokeWidth: 0.5, rotation: 270 },
-          { name: 'LowerLNA2Tri', x: 470, y: 455, sides: 3, radius: 25, fill: 'white', stroke: 'black', strokeWidth: 0.5, rotation: 270 },
+          { name: 'LowerLNA2Tri', x: 510, y: 455, sides: 3, radius: 25, fill: 'white', stroke: 'black', strokeWidth: 0.5, rotation: 270 },
           { name: 'GroundTri', x: 1010, y: 60, sides: 3, radius: 12, fill: 'white', stroke: 'red', strokeWidth: 0.5, rotation: 180, dash: [5, 5] },
         ],
         lines: [
           { name: 'LiveWire1', show: true, points: [90, 115, 200, 115], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire2_1_1', show: true, points: [240, 107, 270, 107, 270, 85, 325, 85], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire2_1_2', show: true, points: [362, 85, 480, 85, 480, 107, 510, 107], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'LiveWire2_2_1', show: true, points: [240, 115, 280, 115, 280, 145, 375, 145], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'LiveWire2_2_2', show: true, points: [412, 145, 470, 145, 470, 115, 510, 115], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          { name: 'LiveWire2_2_1', show: true, points: [240, 115, 280, 115, 280, 145, 365, 145], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          { name: 'LiveWire2_2_2', show: true, points: [402, 145, 470, 145, 470, 115, 510, 115], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire2_3', show: true, points: [240, 124, 270, 124, 270, 190, 480, 190, 480, 124, 510, 124], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire3', show: true, points: [550, 115, 620, 115], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire4', show: true, points: [680, 115, 790, 115], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
@@ -114,8 +114,8 @@ class NetworkConfig extends Component {
           { name: 'LiveWire7', show: true, points: [670, 410, 750, 410], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire8_1_1', show: true, points: [360, 405, 390, 405, 390, 395, 445, 395], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire8_1_2', show: true, points: [483, 395, 580, 395, 580, 405, 630, 405], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'LiveWire8_2_1', show: true, points: [360, 415, 400, 415, 400, 455, 445, 455], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
-          { name: 'LiveWire8_2_2', show: true, points: [483, 455, 570, 455, 570, 415, 630, 415], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          { name: 'LiveWire8_2_1', show: true, points: [360, 415, 400, 415, 400, 455, 485, 455], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
+          { name: 'LiveWire8_2_2', show: true, points: [523, 455, 570, 455, 570, 415, 630, 415], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire8_3', show: true, points: [630, 425, 580, 425, 580, 490, 390, 490, 390, 425, 360, 425], stroke: 'black', strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire9', show: true, points: [260, 415, 320, 415], stroke: GREEN, strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
           { name: 'LiveWire10', show: true, points: [170, 415, 210, 415], stroke: GREEN   , strokeWidth: 2, lineJoin: 'round', shadowColor: 'black', shadowBlur: 5, shadowOffset: [2, 2], shadowOpacity: 0.5 },
@@ -157,9 +157,9 @@ class NetworkConfig extends Component {
           { name: 'ToTopText', x: 880, y: 400, text: 'To Top', fontSize: 17, fontFamily: 'Calibri', fill: 'black' },
           { name: 'ToBaseText', x: 100, y: 145, text: 'To Base', fontSize: 17, fontFamily: 'Calibri', fill: 'black' },
           { name: 'UpperLNA1Text', x: 334, y: 80, text: 'LNA1', fontSize: 12, fontFamily: 'Calibri', fill: 'black' },
-          { name: 'UpperLNA2Text', x: 384, y: 140, text: 'LNA2', fontSize: 12, fontFamily: 'Calibri', fill: 'black' },
+          { name: 'UpperLNA2Text', x: 374, y: 140, text: 'LNA2', fontSize: 12, fontFamily: 'Calibri', fill: 'black' },
           { name: 'LowerLNA1Text', x: 454, y: 390, text: 'LNA1', fontSize: 12, fontFamily: 'Calibri', fill: 'black' },
-          { name: 'LowerLNA2Text', x: 454, y: 450, text: 'LNA2', fontSize: 12, fontFamily: 'Calibri', fill: 'black' },
+          { name: 'LowerLNA2Text', x: 494, y: 450, text: 'LNA2', fontSize: 12, fontFamily: 'Calibri', fill: 'black' },
           { name: 'WaveBoxText', x: 590, y: 80, text: '453.25-458.25 MHz', fontSize: 17, fontFamily: 'Calibri', fill: 'black' },
           { name: 'GNDText', x: 841, y: 169, text: 'GND', fontSize: 10, fontFamily: 'Calibri', fill: 'black' },
           { name: 'UpperTestText', x: 740, y: 150, text: 'Test', fontSize: 17, fontFamily: 'Calibri', fill: 'black' },
@@ -211,8 +211,8 @@ class NetworkConfig extends Component {
   componentDidMount() {
     this.interval = setInterval(() => {
       this.setTopToBasePath('pathTest');
-      this.setBasePath('basePath3');
-      this.setTopPath('topPath3');
+      this.setBasePath('basePath4');
+      this.setTopPath('topPath6');
       this.setColors('green', 'green', 'red', 'green');
         // let nfsTopPath = Math.random() >= 0.5;
         // let nfsBasePath = Math.random() >= 0.5;
@@ -280,8 +280,8 @@ class NetworkConfig extends Component {
     }, 1000);
     this.interval = setInterval(() => {
       this.setTopToBasePath('pathNormal');
-      this.setBasePath('basePath4');
-      this.setTopPath('topPath5');
+      this.setBasePath('basePath7');
+      this.setTopPath('topPath1');
       this.setColors('green', 'red', 'green', 'green');
         // this.setState({ lines: update(this.state.lines, {25: {show: {$set: false    }}}) });
         // this.setState({ lines: update(this.state.lines, {26: {show: {$set: false    }}}) });
@@ -394,6 +394,20 @@ class NetworkConfig extends Component {
       this.setState({ lines: update(this.state.lines, {3: {stroke: {$set: 'black' }}}) });
       this.setState({ lines: update(this.state.lines, {4: {stroke: {$set: 'black' }}}) });
       this.setState({ lines: update(this.state.lines, {5: {stroke: {$set: GREEN   }}}) });
+    } else {
+      this.setState({ lines: update(this.state.lines, {25: {show: {$set: true     }}}) });
+      this.setState({ lines: update(this.state.lines, {26: {show: {$set: false    }}}) });
+      this.setState({ lines: update(this.state.lines, {27: {show: {$set: false    }}}) });
+      this.setState({ lines: update(this.state.lines, {28: {show: {$set: true     }}}) });
+      this.setState({ lines: update(this.state.lines, {29: {show: {$set: false    }}}) });
+      this.setState({ lines: update(this.state.lines, {30: {show: {$set: false    }}}) });
+      this.setState({ lines: update(this.state.lines, {37: {show: {$set: true     }}}) });
+      this.setState({ lines: update(this.state.lines, {38: {show: {$set: false    }}}) });
+      this.setState({ lines: update(this.state.lines, {1: {stroke: {$set: GREEN   }}}) });
+      this.setState({ lines: update(this.state.lines, {2: {stroke: {$set: GREEN   }}}) });
+      this.setState({ lines: update(this.state.lines, {3: {stroke: {$set: 'black' }}}) });
+      this.setState({ lines: update(this.state.lines, {4: {stroke: {$set: 'black' }}}) });
+      this.setState({ lines: update(this.state.lines, {5: {stroke: {$set: 'black' }}}) });
     }
   }
   setBasePath(pathName) {
@@ -485,7 +499,7 @@ class NetworkConfig extends Component {
       this.setState({ lines: update(this.state.lines, {36: {show: {$set: false     }}}) });
       this.setState({ lines: update(this.state.lines, {39: {show: {$set: true      }}}) });
       this.setState({ lines: update(this.state.lines, {40: {show: {$set: false     }}}) });
-      this.setState({ lines: update(this.state.lines, {41: {show: {$set: true      }}}) });
+      this.setState({ lines: update(this.state.lines, {41: {show: {$set: false     }}}) });
       this.setState({ lines: update(this.state.lines, {42: {show: {$set: true      }}}) });
       this.setState({ lines: update(this.state.lines, {9: {stroke: {$set: GREEN    }}}) });
       this.setState({ lines: update(this.state.lines, {11: {stroke: {$set: GREEN   }}}) });
@@ -505,7 +519,7 @@ class NetworkConfig extends Component {
       this.setState({ lines: update(this.state.lines, {36: {show: {$set: false     }}}) });
       this.setState({ lines: update(this.state.lines, {39: {show: {$set: true      }}}) });
       this.setState({ lines: update(this.state.lines, {40: {show: {$set: false     }}}) });
-      this.setState({ lines: update(this.state.lines, {41: {show: {$set: true      }}}) });
+      this.setState({ lines: update(this.state.lines, {41: {show: {$set: false     }}}) });
       this.setState({ lines: update(this.state.lines, {42: {show: {$set: true      }}}) });
       this.setState({ lines: update(this.state.lines, {9: {stroke: {$set: GREEN    }}}) });
       this.setState({ lines: update(this.state.lines, {11: {stroke: {$set: 'black' }}}) });
@@ -525,7 +539,7 @@ class NetworkConfig extends Component {
       this.setState({ lines: update(this.state.lines, {36: {show: {$set: true      }}}) });
       this.setState({ lines: update(this.state.lines, {39: {show: {$set: true      }}}) });
       this.setState({ lines: update(this.state.lines, {40: {show: {$set: false     }}}) });
-      this.setState({ lines: update(this.state.lines, {41: {show: {$set: true      }}}) });
+      this.setState({ lines: update(this.state.lines, {41: {show: {$set: false     }}}) });
       this.setState({ lines: update(this.state.lines, {42: {show: {$set: true      }}}) });
       this.setState({ lines: update(this.state.lines, {9: {stroke: {$set: GREEN    }}}) });
       this.setState({ lines: update(this.state.lines, {11: {stroke: {$set: 'black' }}}) });
@@ -536,6 +550,26 @@ class NetworkConfig extends Component {
       this.setState({ lines: update(this.state.lines, {18: {stroke: {$set: 'black' }}}) });
       this.setState({ lines: update(this.state.lines, {19: {stroke: {$set: GREEN   }}}) });
       this.setState({ lines: update(this.state.lines, {20: {stroke: {$set: GREEN   }}}) });
+    } else {
+      this.setState({ lines: update(this.state.lines, {31: {show: {$set: true      }}}) });
+      this.setState({ lines: update(this.state.lines, {32: {show: {$set: false     }}}) });
+      this.setState({ lines: update(this.state.lines, {33: {show: {$set: false     }}}) });
+      this.setState({ lines: update(this.state.lines, {34: {show: {$set: true      }}}) });
+      this.setState({ lines: update(this.state.lines, {35: {show: {$set: false     }}}) });
+      this.setState({ lines: update(this.state.lines, {36: {show: {$set: false     }}}) });
+      this.setState({ lines: update(this.state.lines, {39: {show: {$set: true      }}}) });
+      this.setState({ lines: update(this.state.lines, {40: {show: {$set: false     }}}) });
+      this.setState({ lines: update(this.state.lines, {41: {show: {$set: false     }}}) });
+      this.setState({ lines: update(this.state.lines, {42: {show: {$set: false     }}}) });
+      this.setState({ lines: update(this.state.lines, {9: {stroke: {$set: GREEN    }}}) });
+      this.setState({ lines: update(this.state.lines, {11: {stroke: {$set: GREEN   }}}) });
+      this.setState({ lines: update(this.state.lines, {12: {stroke: {$set: GREEN   }}}) });
+      this.setState({ lines: update(this.state.lines, {13: {stroke: {$set: 'black' }}}) });
+      this.setState({ lines: update(this.state.lines, {14: {stroke: {$set: 'black' }}}) });
+      this.setState({ lines: update(this.state.lines, {15: {stroke: {$set: 'black' }}}) });
+      this.setState({ lines: update(this.state.lines, {18: {stroke: {$set: 'black' }}}) });
+      this.setState({ lines: update(this.state.lines, {19: {stroke: {$set: 'black' }}}) });
+      this.setState({ lines: update(this.state.lines, {20: {stroke: {$set: 'black' }}}) });
     }
   }
   setTopToBasePath(pathName) {
@@ -644,46 +678,51 @@ class NetworkConfig extends Component {
       <div className="container">
         <Row>
           <Col lg="12">
-            <Stage width={window.innerWidth} height={window.innerHeight}>
-              <Layer>
-                { rectList }
-                { triList }
-                { lineList }
-                { textList }
-                <ATTENBoxShape/>
-                <ATTENArrow/>
-                <BaseFork/>
-                <TopFork/>
-                <FrontPanelFork/>
-                <LowerTestFork/>
-                <UpperTestFork/>
-                <SplitterForks/>
-                <GroundFork/>
-                <GND/>
+            <Card className="carded">
+              <CardBody className="card-body">
+                <Stage width={1020} height={550}>
+                {/*<Stage width={window.innerWidth} height={window.innerHeight}>*/}
+                  <Layer>
+                    { rectList }
+                    { triList }
+                    { lineList }
+                    { textList }
+                    <ATTENBoxShape/>
+                    <ATTENArrow/>
+                    <BaseFork/>
+                    <TopFork/>
+                    <FrontPanelFork/>
+                    <LowerTestFork/>
+                    <UpperTestFork/>
+                    <SplitterForks/>
+                    <GroundFork/>
+                    <GND/>
 
-                {/*{ this.state.NFS1_1 ? <Line name={'NFS1_1'} points={[200, 115, 240, 107]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS1_2 ? <Line name={'NFS1_2'} points={[200, 115, 240, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS1_3 ? <Line name={'NFS1_3'} points={[200, 115, 240, 124]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS2_1 ? <Line name={'NFS2_1'} points={[510, 107, 550, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS2_2 ? <Line name={'NFS2_2'} points={[510, 115, 550, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS2_3 ? <Line name={'NFS2_3'} points={[510, 124, 550, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS5_1 ? <Line name={'NFS5_1'} points={[790, 115, 830, 110]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS5_2 ? <Line name={'NFS5_2'} points={[790, 115, 830, 120]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS3_1 ? <Line name={'NFS3_1'} points={[320, 415, 360, 405]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS3_2 ? <Line name={'NFS3_2'} points={[320, 415, 360, 415]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS3_3 ? <Line name={'NFS3_3'} points={[320, 415, 360, 425]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS4_1 ? <Line name={'NFS4_1'} points={[630, 405, 670, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS4_2 ? <Line name={'NFS4_2'} points={[630, 415, 670, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS4_3 ? <Line name={'NFS4_3'} points={[630, 425, 670, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS6_1 ? <Line name={'NFS6_1'} points={[750, 410, 780, 420]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS6_2 ? <Line name={'NFS6_2'} points={[750, 420, 780, 420]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS6_3 ? <Line name={'NFS6_3'} points={[750, 460, 780, 460]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
-                {/*{ this.state.NFS6_4 ? <Line name={'NFS6_4'} points={[750, 470, 780, 460]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS1_1 ? <Line name={'NFS1_1'} points={[200, 115, 240, 107]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS1_2 ? <Line name={'NFS1_2'} points={[200, 115, 240, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS1_3 ? <Line name={'NFS1_3'} points={[200, 115, 240, 124]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS2_1 ? <Line name={'NFS2_1'} points={[510, 107, 550, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS2_2 ? <Line name={'NFS2_2'} points={[510, 115, 550, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS2_3 ? <Line name={'NFS2_3'} points={[510, 124, 550, 115]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS5_1 ? <Line name={'NFS5_1'} points={[790, 115, 830, 110]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS5_2 ? <Line name={'NFS5_2'} points={[790, 115, 830, 120]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS3_1 ? <Line name={'NFS3_1'} points={[320, 415, 360, 405]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS3_2 ? <Line name={'NFS3_2'} points={[320, 415, 360, 415]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS3_3 ? <Line name={'NFS3_3'} points={[320, 415, 360, 425]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS4_1 ? <Line name={'NFS4_1'} points={[630, 405, 670, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS4_2 ? <Line name={'NFS4_2'} points={[630, 415, 670, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS4_3 ? <Line name={'NFS4_3'} points={[630, 425, 670, 410]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS6_1 ? <Line name={'NFS6_1'} points={[750, 410, 780, 420]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS6_2 ? <Line name={'NFS6_2'} points={[750, 420, 780, 420]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS6_3 ? <Line name={'NFS6_3'} points={[750, 460, 780, 460]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
+                    {/*{ this.state.NFS6_4 ? <Line name={'NFS6_4'} points={[750, 470, 780, 460]} stroke={'black'} strokeWidth={1} lineJoin={'round'} shadowColor={'black'} shadowBlur={5} shadowOffset={[2, 2]} shadowOpacity={0.5} /> : null }*/}
 
-                {/*<Text name={'atten'} x={200} y={375} text={this.state.atten} fontSize={17} fontFamily={'Calibri'} fill={'black'} />*/}
+                    {/*<Text name={'atten'} x={200} y={375} text={this.state.atten} fontSize={17} fontFamily={'Calibri'} fill={'black'} />*/}
 
-              </Layer>
-            </Stage>
+                  </Layer>
+                </Stage>
+              </CardBody>
+            </Card>
           </Col>
         </Row>
         <Row>
